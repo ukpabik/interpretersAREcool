@@ -4,10 +4,10 @@ Welcome to **KupyInterpreter** – a passion project born out of sheer enthusias
 
 ## 🌟 Table of Contents
 
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Installation](#installation)
-- [Getting Started](#getting-started)
+- [About the Project](#📖about-the-project)
+- [Features](#🌟features)
+- [Installation](#🚀installation)
+- [Getting Started](#🎉getting-started)
 
 ## 📖 About the Project
 
