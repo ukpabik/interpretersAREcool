@@ -4,7 +4,7 @@ Welcome to **KupyInterpreter** – a passion project born out of sheer enthusias
 
 ## 📖 About the Project
 
-Embarking on the journey to build **KupyInterpreter** was fueled by my passion for learning Python from the ground up. By creating an interpreter, I've been able to explore the intricacies of programming languages, parsing techniques, and runtime environments. This project serves not only as a personal learning tool but also as a resource for anyone eager to understand the magic behind interpreters.
+Building **KupyInterpreter** was fueled by my passion for learning Python from the ground up. By creating an interpreter, I've been able to explore the intricacies of programming languages, parsing techniques, and runtime environments. This project serves not only as a personal learning tool but also as a resource for anyone wanting to understand the processes behind interpreters.
 
 ## 🌟 Features
 
@@ -24,7 +24,7 @@ Embarking on the journey to build **KupyInterpreter** was fueled by my passion f
 
 ### 📥 Clone the Repository
 
-Kickstart your journey by cloning the repository to your local machine:
+Cloning the repository to your local machine:
 
 ```bash
 git clone https://github.com/yourusername/kupyinterpreter.git
