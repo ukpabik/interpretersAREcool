@@ -8,12 +8,6 @@ Welcome to **KupyInterpreter** – a passion project born out of sheer enthusias
 - [Features](#features)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Interactive REPL](#interactive-repl)
-- [Cool Commands to Try](#cool-commands-to-try)
-- [Testing](#testing)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## 📖 About the Project
 
