@@ -94,7 +94,6 @@ class Lexer(object):
 # They come out as this: Type, Value, Line #, Lex Position
 m = Lexer()
 m.build()
-m.test('a > 0')
 
 # To use lexer, feed it input text using input(), and then
 # after, repeated calls to token() produces the tokens.

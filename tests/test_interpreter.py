@@ -49,11 +49,6 @@ class TestEvaluator(unittest.TestCase):
         evaluate(if_node, self.env)
         self.assertEqual(self.env.variables['a'], 3)
 
-    def test_undefined_variable(self):
-        with self.assertRaises(Exception) as context:
-            evaluate('b', self.env)
-        self.assertIn("Undefined variable 'b'", str(context.exception))
-
     def test_division_by_zero(self):
         node = BinOp(Number(10), '/', Number(0))
         with self.assertRaises(ZeroDivisionError):

@@ -7,7 +7,7 @@ from environment import Environment
 
 def main():
     env = Environment()
-    print("Welcome to the Calc Interpreter!")
+    print("Welcome to the KupyInterpreter!")
     print("Type 'exit' or 'quit' to exit.\n")
 
     while True:
@@ -17,7 +17,7 @@ def main():
                 print("Goodbye!")
                 break
             if not s:
-                continue  # Skip empty input
+                continue
 
             # Parse the input
             ast = parser.parse(s, lexer=lexer_instance.lexer)
