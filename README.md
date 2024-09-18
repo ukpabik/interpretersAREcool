@@ -2,13 +2,6 @@
 
 Welcome to **KupyInterpreter** – a passion project born out of sheer enthusiasm to dive deep into the wonders of Python! 
 
-## 🌟 Table of Contents
-
-- [About the Project](#📖about-the-project)
-- [Features](#🌟features)
-- [Installation](#🚀installation)
-- [Getting Started](#🎉getting-started)
-
 ## 📖 About the Project
 
 Embarking on the journey to build **KupyInterpreter** was fueled by my passion for learning Python from the ground up. By creating an interpreter, I've been able to explore the intricacies of programming languages, parsing techniques, and runtime environments. This project serves not only as a personal learning tool but also as a resource for anyone eager to understand the magic behind interpreters.
