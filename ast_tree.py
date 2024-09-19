@@ -24,10 +24,11 @@ class Assign:
         return f'Assign("{self.id}", {self.expression})'
 
 class If:
-    def __init__(self, condition, body):
+    def __init__(self, condition, body, orelse=None):
         self.condition = condition
         self.body = body
-
+        self.orelse = orelse
     def __repr__(self):
+        if self.orelse:
+            return f'If({self.condition}, {self.body}, Else({self.orelse}))'
         return f'If({self.condition}, {self.body})'
-

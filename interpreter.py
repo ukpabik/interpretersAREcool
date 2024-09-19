@@ -37,7 +37,12 @@ def evaluate(node, env):
         if condition:
             for statement in node.body:
                 evaluate(statement, env)
+        else:
+            if node.orelse:
+                for statement in node.orelse:
+                    evaluate(statement, env)
         return None
+
     elif isinstance(node, str):
         if node in env.variables:
             return env.variables[node]

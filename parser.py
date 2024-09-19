@@ -52,8 +52,8 @@ def p_expression_id(p):
     p[0] = p[1]  # Will handle in evaluation
 
 def p_statement_if(p):
-    'statement : IF LPAREN expression RPAREN LBRACE statements RBRACE'
-    p[0] = If(p[3], p[6])
+    'statement : IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE'
+    p[0] = If(p[3], p[6], p[10])
 
 def p_statements_multiple(p):
     'statements : statements statement'
@@ -62,6 +62,8 @@ def p_statements_multiple(p):
 def p_statements_single(p):
     'statements : statement'
     p[0] = [p[1]]
+
+
 
 def p_error(p):
     if p:
