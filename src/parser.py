@@ -1,7 +1,7 @@
 #  parser.py
 import ply.yacc as yacc
 from lexer import Lexer
-from ast_tree import Number, BinOp, Assign, If
+from ast_tree import Number, BinOp, Assign, If, While, For
 from interpreter import evaluate
 from environment import Environment
 
@@ -55,6 +55,13 @@ def p_statement_if(p):
     'statement : IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE'
     p[0] = If(p[3], p[6], p[10])
 
+def p_statement_while(p):
+    'statement : WHILE LPAREN expression RPAREN LBRACE statements RBRACE'
+    p[0] = While(p[3], p[6])
+
+def p_statement_for(p):
+    'statement : FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression SEMICOLON RPAREN LBRACE statements RBRACE'
+    p[0] = For(Assign(p[3], p[5]), p[7], Assign(p[9], p[11]), p[15])
 def p_statements_multiple(p):
     'statements : statements statement'
     p[0] = p[1] + [p[2]]

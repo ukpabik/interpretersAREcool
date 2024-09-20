@@ -1,4 +1,4 @@
-from ast_tree import Number, BinOp, Assign, If
+from ast_tree import Number, BinOp, Assign, If, While, For
 from environment import Environment
 
 def evaluate(node, env):
@@ -41,6 +41,32 @@ def evaluate(node, env):
             if node.orelse:
                 for statement in node.orelse:
                     evaluate(statement, env)
+        return None
+
+    elif isinstance(node, While):
+        condition = evaluate(node.condition, env)
+        if condition:
+            while True:
+                if not condition:
+                    break
+                for statement in node.body:
+                    evaluate(statement, env)
+                condition = evaluate(node.condition, env)
+                print(condition)
+        return None
+
+    elif isinstance(node, For):
+        value = evaluate(node.expression1, env)
+        print(value)
+        while True:
+            condition = evaluate(node.condition, env)
+            if not condition:
+                break
+            for statement in node.body:
+
+                evaluate(statement, env) 
+            index = evaluate(node.expression2, env)
+            print(index) 
         return None
 
     elif isinstance(node, str):

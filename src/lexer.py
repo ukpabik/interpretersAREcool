@@ -7,8 +7,9 @@ class Lexer(object):
     # Reserved key words
     reserved = {
             'if': 'IF',
-            'then': 'THEN',
             'else': 'ELSE',
+            'while': 'WHILE',
+            'for': 'FOR'
             }
 
 
@@ -28,6 +29,7 @@ class Lexer(object):
         'SEMICOLON',
         'GREATERTHAN',
         'LESSTHAN',
+        
         ] + list(reserved.values())
 
     # Expression rules for simple tokens, special prefix 't_' to indicate it is a token

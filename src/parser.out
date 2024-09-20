@@ -1,1 +1,1015 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> program statement
+Rule 2     program -> statement
+Rule 3     statement -> ID ASSIGN expression SEMICOLON
+Rule 4     expression -> expression PLUS expression
+Rule 5     expression -> expression MINUS expression
+Rule 6     expression -> expression TIMES expression
+Rule 7     expression -> expression DIVIDE expression
+Rule 8     expression -> expression GREATERTHAN expression
+Rule 9     expression -> expression LESSTHAN expression
+Rule 10    expression -> MINUS expression
+Rule 11    expression -> NUMBER
+Rule 12    expression -> ID
+Rule 13    statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+Rule 14    statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+Rule 15    statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+Rule 16    statements -> statements statement
+Rule 17    statements -> statement
+
+Terminals, with rules where they appear
+
+ASSIGN               : 3 15 15
+DIVIDE               : 7
+ELSE                 : 13
+FOR                  : 15
+GREATERTHAN          : 8
+ID                   : 3 12 15 15
+IF                   : 13
+LBRACE               : 13 13 14 15
+LESSTHAN             : 9
+LPAREN               : 13 14 15
+MINUS                : 5 10
+NUMBER               : 11
+PLUS                 : 4
+RBRACE               : 13 13 14 15
+RPAREN               : 13 14 15
+SEMICOLON            : 3 15 15
+TIMES                : 6
+WHILE                : 14
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 3 4 4 5 5 6 6 7 7 8 8 9 9 10 13 14 15 15 15
+program              : 1 0
+statement            : 1 2 16 17
+statements           : 13 13 14 15 16
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . program statement
+    (2) program -> . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    program                        shift and go to state 1
+    statement                      shift and go to state 2
+
+state 1
+
+    (0) S' -> program .
+    (1) program -> program . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statement                      shift and go to state 7
+
+state 2
+
+    (2) program -> statement .
+
+    ID              reduce using rule 2 (program -> statement .)
+    IF              reduce using rule 2 (program -> statement .)
+    WHILE           reduce using rule 2 (program -> statement .)
+    FOR             reduce using rule 2 (program -> statement .)
+    $end            reduce using rule 2 (program -> statement .)
+
+
+state 3
+
+    (3) statement -> ID . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 8
+
+
+state 4
+
+    (13) statement -> IF . LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+
+    LPAREN          shift and go to state 9
+
+
+state 5
+
+    (14) statement -> WHILE . LPAREN expression RPAREN LBRACE statements RBRACE
+
+    LPAREN          shift and go to state 10
+
+
+state 6
+
+    (15) statement -> FOR . LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    LPAREN          shift and go to state 11
+
+
+state 7
+
+    (1) program -> program statement .
+
+    ID              reduce using rule 1 (program -> program statement .)
+    IF              reduce using rule 1 (program -> program statement .)
+    WHILE           reduce using rule 1 (program -> program statement .)
+    FOR             reduce using rule 1 (program -> program statement .)
+    $end            reduce using rule 1 (program -> program statement .)
+
+
+state 8
+
+    (3) statement -> ID ASSIGN . expression SEMICOLON
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 13
+
+state 9
+
+    (13) statement -> IF LPAREN . expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 16
+
+state 10
+
+    (14) statement -> WHILE LPAREN . expression RPAREN LBRACE statements RBRACE
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 17
+
+state 11
+
+    (15) statement -> FOR LPAREN . ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 18
+
+
+state 12
+
+    (12) expression -> ID .
+
+    SEMICOLON       reduce using rule 12 (expression -> ID .)
+    PLUS            reduce using rule 12 (expression -> ID .)
+    MINUS           reduce using rule 12 (expression -> ID .)
+    TIMES           reduce using rule 12 (expression -> ID .)
+    DIVIDE          reduce using rule 12 (expression -> ID .)
+    GREATERTHAN     reduce using rule 12 (expression -> ID .)
+    LESSTHAN        reduce using rule 12 (expression -> ID .)
+    RPAREN          reduce using rule 12 (expression -> ID .)
+
+
+state 13
+
+    (3) statement -> ID ASSIGN expression . SEMICOLON
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       shift and go to state 19
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+
+state 14
+
+    (10) expression -> MINUS . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 26
+
+state 15
+
+    (11) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 11 (expression -> NUMBER .)
+    PLUS            reduce using rule 11 (expression -> NUMBER .)
+    MINUS           reduce using rule 11 (expression -> NUMBER .)
+    TIMES           reduce using rule 11 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 11 (expression -> NUMBER .)
+    GREATERTHAN     reduce using rule 11 (expression -> NUMBER .)
+    LESSTHAN        reduce using rule 11 (expression -> NUMBER .)
+    RPAREN          reduce using rule 11 (expression -> NUMBER .)
+
+
+state 16
+
+    (13) statement -> IF LPAREN expression . RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    RPAREN          shift and go to state 27
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+
+state 17
+
+    (14) statement -> WHILE LPAREN expression . RPAREN LBRACE statements RBRACE
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    RPAREN          shift and go to state 28
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+
+state 18
+
+    (15) statement -> FOR LPAREN ID . ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ASSIGN          shift and go to state 29
+
+
+state 19
+
+    (3) statement -> ID ASSIGN expression SEMICOLON .
+
+    ID              reduce using rule 3 (statement -> ID ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 3 (statement -> ID ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 3 (statement -> ID ASSIGN expression SEMICOLON .)
+    FOR             reduce using rule 3 (statement -> ID ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 3 (statement -> ID ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 3 (statement -> ID ASSIGN expression SEMICOLON .)
+
+
+state 20
+
+    (4) expression -> expression PLUS . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 30
+
+state 21
+
+    (5) expression -> expression MINUS . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 31
+
+state 22
+
+    (6) expression -> expression TIMES . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 32
+
+state 23
+
+    (7) expression -> expression DIVIDE . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 33
+
+state 24
+
+    (8) expression -> expression GREATERTHAN . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 34
+
+state 25
+
+    (9) expression -> expression LESSTHAN . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 35
+
+state 26
+
+    (10) expression -> MINUS expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       reduce using rule 10 (expression -> MINUS expression .)
+    PLUS            reduce using rule 10 (expression -> MINUS expression .)
+    MINUS           reduce using rule 10 (expression -> MINUS expression .)
+    TIMES           reduce using rule 10 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 10 (expression -> MINUS expression .)
+    GREATERTHAN     reduce using rule 10 (expression -> MINUS expression .)
+    LESSTHAN        reduce using rule 10 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 10 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 22 ]
+  ! DIVIDE          [ shift and go to state 23 ]
+  ! GREATERTHAN     [ shift and go to state 24 ]
+  ! LESSTHAN        [ shift and go to state 25 ]
+
+
+state 27
+
+    (13) statement -> IF LPAREN expression RPAREN . LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 36
+
+
+state 28
+
+    (14) statement -> WHILE LPAREN expression RPAREN . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 37
+
+
+state 29
+
+    (15) statement -> FOR LPAREN ID ASSIGN . expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 38
+
+state 30
+
+    (4) expression -> expression PLUS expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       reduce using rule 4 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 4 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 4 (expression -> expression PLUS expression .)
+    GREATERTHAN     reduce using rule 4 (expression -> expression PLUS expression .)
+    LESSTHAN        reduce using rule 4 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 4 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+
+  ! TIMES           [ reduce using rule 4 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 4 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! GREATERTHAN     [ shift and go to state 24 ]
+  ! LESSTHAN        [ shift and go to state 25 ]
+
+
+state 31
+
+    (5) expression -> expression MINUS expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       reduce using rule 5 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 5 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 5 (expression -> expression MINUS expression .)
+    GREATERTHAN     reduce using rule 5 (expression -> expression MINUS expression .)
+    LESSTHAN        reduce using rule 5 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 5 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+
+  ! TIMES           [ reduce using rule 5 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 5 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! GREATERTHAN     [ shift and go to state 24 ]
+  ! LESSTHAN        [ shift and go to state 25 ]
+
+
+state 32
+
+    (6) expression -> expression TIMES expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       reduce using rule 6 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 6 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 6 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 6 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 6 (expression -> expression TIMES expression .)
+    GREATERTHAN     reduce using rule 6 (expression -> expression TIMES expression .)
+    LESSTHAN        reduce using rule 6 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 6 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 22 ]
+  ! DIVIDE          [ shift and go to state 23 ]
+  ! GREATERTHAN     [ shift and go to state 24 ]
+  ! LESSTHAN        [ shift and go to state 25 ]
+
+
+state 33
+
+    (7) expression -> expression DIVIDE expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       reduce using rule 7 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 7 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 7 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 7 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 7 (expression -> expression DIVIDE expression .)
+    GREATERTHAN     reduce using rule 7 (expression -> expression DIVIDE expression .)
+    LESSTHAN        reduce using rule 7 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 7 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 22 ]
+  ! DIVIDE          [ shift and go to state 23 ]
+  ! GREATERTHAN     [ shift and go to state 24 ]
+  ! LESSTHAN        [ shift and go to state 25 ]
+
+
+state 34
+
+    (8) expression -> expression GREATERTHAN expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for GREATERTHAN resolved as shift
+  ! shift/reduce conflict for LESSTHAN resolved as shift
+    SEMICOLON       reduce using rule 8 (expression -> expression GREATERTHAN expression .)
+    RPAREN          reduce using rule 8 (expression -> expression GREATERTHAN expression .)
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+  ! PLUS            [ reduce using rule 8 (expression -> expression GREATERTHAN expression .) ]
+  ! MINUS           [ reduce using rule 8 (expression -> expression GREATERTHAN expression .) ]
+  ! TIMES           [ reduce using rule 8 (expression -> expression GREATERTHAN expression .) ]
+  ! DIVIDE          [ reduce using rule 8 (expression -> expression GREATERTHAN expression .) ]
+  ! GREATERTHAN     [ reduce using rule 8 (expression -> expression GREATERTHAN expression .) ]
+  ! LESSTHAN        [ reduce using rule 8 (expression -> expression GREATERTHAN expression .) ]
+
+
+state 35
+
+    (9) expression -> expression LESSTHAN expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+  ! shift/reduce conflict for GREATERTHAN resolved as shift
+  ! shift/reduce conflict for LESSTHAN resolved as shift
+    SEMICOLON       reduce using rule 9 (expression -> expression LESSTHAN expression .)
+    RPAREN          reduce using rule 9 (expression -> expression LESSTHAN expression .)
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+  ! PLUS            [ reduce using rule 9 (expression -> expression LESSTHAN expression .) ]
+  ! MINUS           [ reduce using rule 9 (expression -> expression LESSTHAN expression .) ]
+  ! TIMES           [ reduce using rule 9 (expression -> expression LESSTHAN expression .) ]
+  ! DIVIDE          [ reduce using rule 9 (expression -> expression LESSTHAN expression .) ]
+  ! GREATERTHAN     [ reduce using rule 9 (expression -> expression LESSTHAN expression .) ]
+  ! LESSTHAN        [ reduce using rule 9 (expression -> expression LESSTHAN expression .) ]
+
+
+state 36
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE . statements RBRACE ELSE LBRACE statements RBRACE
+    (16) statements -> . statements statement
+    (17) statements -> . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statements                     shift and go to state 39
+    statement                      shift and go to state 40
+
+state 37
+
+    (14) statement -> WHILE LPAREN expression RPAREN LBRACE . statements RBRACE
+    (16) statements -> . statements statement
+    (17) statements -> . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statements                     shift and go to state 41
+    statement                      shift and go to state 40
+
+state 38
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression . SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       shift and go to state 42
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+
+state 39
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE statements . RBRACE ELSE LBRACE statements RBRACE
+    (16) statements -> statements . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 43
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statement                      shift and go to state 44
+
+state 40
+
+    (17) statements -> statement .
+
+    RBRACE          reduce using rule 17 (statements -> statement .)
+    ID              reduce using rule 17 (statements -> statement .)
+    IF              reduce using rule 17 (statements -> statement .)
+    WHILE           reduce using rule 17 (statements -> statement .)
+    FOR             reduce using rule 17 (statements -> statement .)
+
+
+state 41
+
+    (14) statement -> WHILE LPAREN expression RPAREN LBRACE statements . RBRACE
+    (16) statements -> statements . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 45
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statement                      shift and go to state 44
+
+state 42
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON . expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 46
+
+state 43
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE . ELSE LBRACE statements RBRACE
+
+    ELSE            shift and go to state 47
+
+
+state 44
+
+    (16) statements -> statements statement .
+
+    RBRACE          reduce using rule 16 (statements -> statements statement .)
+    ID              reduce using rule 16 (statements -> statements statement .)
+    IF              reduce using rule 16 (statements -> statements statement .)
+    WHILE           reduce using rule 16 (statements -> statements statement .)
+    FOR             reduce using rule 16 (statements -> statements statement .)
+
+
+state 45
+
+    (14) statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .
+
+    ID              reduce using rule 14 (statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .)
+    IF              reduce using rule 14 (statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .)
+    WHILE           reduce using rule 14 (statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .)
+    FOR             reduce using rule 14 (statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .)
+    $end            reduce using rule 14 (statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 14 (statement -> WHILE LPAREN expression RPAREN LBRACE statements RBRACE .)
+
+
+state 46
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression . SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    SEMICOLON       shift and go to state 48
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+
+state 47
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 49
+
+
+state 48
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON . ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 50
+
+
+state 49
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE . statements RBRACE
+    (16) statements -> . statements statement
+    (17) statements -> . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statements                     shift and go to state 51
+    statement                      shift and go to state 40
+
+state 50
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID . ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ASSIGN          shift and go to state 52
+
+
+state 51
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements . RBRACE
+    (16) statements -> statements . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 53
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statement                      shift and go to state 44
+
+state 52
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN . expression RPAREN LBRACE statements RBRACE
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression TIMES expression
+    (7) expression -> . expression DIVIDE expression
+    (8) expression -> . expression GREATERTHAN expression
+    (9) expression -> . expression LESSTHAN expression
+    (10) expression -> . MINUS expression
+    (11) expression -> . NUMBER
+    (12) expression -> . ID
+
+    MINUS           shift and go to state 14
+    NUMBER          shift and go to state 15
+    ID              shift and go to state 12
+
+    expression                     shift and go to state 54
+
+state 53
+
+    (13) statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .
+
+    ID              reduce using rule 13 (statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    IF              reduce using rule 13 (statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    WHILE           reduce using rule 13 (statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    FOR             reduce using rule 13 (statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    $end            reduce using rule 13 (statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 13 (statement -> IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE .)
+
+
+state 54
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression . RPAREN LBRACE statements RBRACE
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . TIMES expression
+    (7) expression -> expression . DIVIDE expression
+    (8) expression -> expression . GREATERTHAN expression
+    (9) expression -> expression . LESSTHAN expression
+
+    RPAREN          shift and go to state 55
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 22
+    DIVIDE          shift and go to state 23
+    GREATERTHAN     shift and go to state 24
+    LESSTHAN        shift and go to state 25
+
+
+state 55
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 56
+
+
+state 56
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE . statements RBRACE
+    (16) statements -> . statements statement
+    (17) statements -> . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statements                     shift and go to state 57
+    statement                      shift and go to state 40
+
+state 57
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements . RBRACE
+    (16) statements -> statements . statement
+    (3) statement -> . ID ASSIGN expression SEMICOLON
+    (13) statement -> . IF LPAREN expression RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    (14) statement -> . WHILE LPAREN expression RPAREN LBRACE statements RBRACE
+    (15) statement -> . FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE
+
+    RBRACE          shift and go to state 58
+    ID              shift and go to state 3
+    IF              shift and go to state 4
+    WHILE           shift and go to state 5
+    FOR             shift and go to state 6
+
+    statement                      shift and go to state 44
+
+state 58
+
+    (15) statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .
+
+    ID              reduce using rule 15 (statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .)
+    IF              reduce using rule 15 (statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .)
+    WHILE           reduce using rule 15 (statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .)
+    FOR             reduce using rule 15 (statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .)
+    $end            reduce using rule 15 (statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 15 (statement -> FOR LPAREN ID ASSIGN expression SEMICOLON expression SEMICOLON ID ASSIGN expression RPAREN LBRACE statements RBRACE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 34 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 34 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 34 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 34 resolved as shift
+WARNING: shift/reduce conflict for GREATERTHAN in state 34 resolved as shift
+WARNING: shift/reduce conflict for LESSTHAN in state 34 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 35 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 35 resolved as shift
+WARNING: shift/reduce conflict for GREATERTHAN in state 35 resolved as shift
+WARNING: shift/reduce conflict for LESSTHAN in state 35 resolved as shift

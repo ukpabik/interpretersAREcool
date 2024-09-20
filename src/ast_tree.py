@@ -32,3 +32,21 @@ class If:
         if self.orelse:
             return f'If({self.condition}, {self.body}, Else({self.orelse}))'
         return f'If({self.condition}, {self.body})'
+
+class While:
+    def __init__(self, condition, body):
+        self.condition = condition
+        self.body = body
+
+    def __repr__(self):
+        return f'While({self.condition}, {self.body})'
+
+class For:
+    def __init__(self, expression1, condition, expression2, body):
+        self.expression1 = expression1
+        self.condition = condition
+        self.expression2 = expression2
+        self.body = body
+
+    def __repr__(self):
+        return f'For({self.expression1}, {self.condition}, {self.expression2}, {self.body})'
