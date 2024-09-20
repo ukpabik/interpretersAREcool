@@ -50,3 +50,27 @@ class For:
 
     def __repr__(self):
         return f'For({self.expression1}, {self.condition}, {self.expression2}, {self.body})'
+
+class FuncDef:
+    def __init__(self, name, params, body):
+        self.name = name
+        self.params = params
+        self.body = body
+
+    def __repr__(self):
+        return f'FuncDef(name={self.name}, params={self.params}, body={self.body})'
+
+class FunctionCall:
+    def __init__(self, name, args):
+        self.name = name
+        self.args = args
+
+    def __repr__(self):
+        return f'FunctionCall(name={self.name}, args={self.args})'
+
+class Return:
+    def __init__(self, expr):
+        self.expr = expr
+
+    def __repr__(self):
+        return f'Return(expr={self.expr})'

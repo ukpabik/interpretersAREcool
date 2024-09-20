@@ -9,7 +9,7 @@ class Lexer(object):
             'if': 'IF',
             'else': 'ELSE',
             'while': 'WHILE',
-            'for': 'FOR'
+            'for': 'FOR',
             }
 
 

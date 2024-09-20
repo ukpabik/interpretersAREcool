@@ -68,7 +68,6 @@ def evaluate(node, env):
             index = evaluate(node.expression2, env)
             print(index) 
         return None
-
     elif isinstance(node, str):
         if node in env.variables:
             return env.variables[node]
