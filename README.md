@@ -12,7 +12,7 @@ A repo that is for helping me learn languages. I thought that learning how compu
 1. Clone the repo:
 ```bash
 git clone https://github.com/ukpabik/interpretersarecool.git
-cd interpreters-are-cool
+cd interpretersarecool
 ```
 2. Pick a language you want to see (ex. python):
 ```bash
