@@ -1,60 +1,25 @@
-# KupyInterpreter 🚀
+# INTERPRETERS ARE COOL I PROMISE..... 🚀
 
-Welcome to **KupyInterpreter** – a passion project born out of sheer enthusiasm to dive deep into the wonders of Python! 
+A repo that is for helping me learn languages. I thought that learning how computers parse and interpret data was a good idea.... I will say that I learned a lot. As part of my computer science journey, I felt that learning what happens under the hood was important, so here we are.
 
-## 📖 About the Project
+## What I learned so far
+- The point of Lexers (Lexical Analysis): Lexers break down raw code into tokens, the first step into transforming code into something a computer can understand.
+- Parsing: Creating a tree structure from tokens that defines relationships between each of the elements.
+- Creating an evaluator: Turning the structured data into code that can be executed.
+- Handling errors: Learning what happens behind the scenes for when an error occurs, and how interpreters can catch and manage them.
 
-Building **KupyInterpreter** was fueled by my passion for learning Python from the ground up. By creating an interpreter, I've been able to explore the intricacies of programming languages, parsing techniques, and runtime environments. This project serves not only as a personal learning tool but also as a resource for anyone wanting to understand the processes behind interpreters.
-
-## 🌟 Features
-
-- **🔥 Arithmetic Operations:** Master the basics with addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`).
-- **📝 Variable Assignments:** Assign and manipulate variables effortlessly using the `=` operator.
-- **🔍 Conditional Statements:** Bring your code to life with `if` statements that execute based on dynamic conditions.
-- **🔢 Expression Evaluation:** Compute and evaluate arithmetic expressions seamlessly.
-- **💬 Interactive REPL:** Dive into real-time coding with our user-friendly Read-Eval-Print Loop.
-- **🛡️ Error Handling:** Receive clear and informative error messages to guide your learning process.
-- **✅ Unit Testing:** Ensure your code is rock-solid with comprehensive unit tests that validate every feature.
-
-## 🚀 Installation
-
-### 🛠️ Prerequisites
-
-- **Python 3.6 or Higher:** If you haven't installed Python yet, grab it from the [official website](https://www.python.org/downloads/) and get ready to code!
-
-### 📥 Clone the Repository
-
-Cloning the repository to your local machine:
-
+## Getting Started
+1. Clone the repo:
 ```bash
-git clone https://github.com/yourusername/kupyinterpreter.git
-cd kupyinterpreter
+git clone https://github.com/ukpabik/interpreters-are-cool.git
+cd interpreters-are-cool
 ```
-## 📦 Install Dependencies
-
-KupyInterpreter leverages the power of **PLY** for lexing and parsing. Install it using `pip`:
-
+2. Pick a language you want to see:
+Example:
 ```bash
-pip install ply
+cd python
 ```
+3. Run the interpreter of that specific language and start experimenting.
 
-## 🎉 Getting Started
-Start your interactive shell:
-```bash
-python main.py
-```
-Sample Interaction
-```bash
-Welcome to the KupyInterpreter! 🎉
-Type 'exit' or 'quit' to exit.
-
-calc > a = 10;
-10
-calc > a > 5;
-True
-calc > if (a > 5) { a = 1; }
-calc > a;
-1
-calc > exit
-Goodbye! 👋
-```
+## Contributing
+If you have any ideas for improving the current implementations, feel free to fork this repo and submit a PR!
