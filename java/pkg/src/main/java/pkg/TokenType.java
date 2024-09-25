@@ -1,6 +1,7 @@
-package src;
+package pkg;
 
-  enum TokenType{
+public enum TokenType{
+
     ILLEGAL("ILLEGAL"),
     EOF("EOF"),
 
@@ -9,8 +10,8 @@ package src;
     INT("INT"),
 
     //Operators
-    ASSIGN("ASSIGN"),
-    PLUS("PLUS"),
+    ASSIGN("="),
+    PLUS("+"),
 
     //Delimiters
     COMMA(","),
@@ -41,18 +42,6 @@ package src;
     public String getLiteral() {
       return literal;
     }
+
 }
 
-
-public class Token{
-  
-  private TokenType type;
-  private String literal;
-
-
-
-  public Token(TokenType newType){
-    this.type = newType;
-    this.literal = newType.getLiteral();
-  }
-}
