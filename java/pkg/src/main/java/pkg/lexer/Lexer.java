@@ -45,7 +45,13 @@ public class Lexer {
 
     switch(this.ch){
       case '=':
-        tok = new Token(TokenType.ASSIGN);
+        if (this.peekChar() == '='){
+          this.readChar();
+          tok = new Token(TokenType.EQUALS);
+        }
+        else {
+          tok = new Token(TokenType.ASSIGN);
+        }
         break;
       case ';':
         tok = new Token(TokenType.SEMICOLON);
@@ -61,6 +67,30 @@ public class Lexer {
         break;
       case '+':
         tok = new Token(TokenType.PLUS);
+        break;
+      case '-':
+        tok = new Token(TokenType.MINUS);
+        break;
+      case '!':
+        if (this.peekChar() == '='){
+          this.readChar();
+          tok = new Token(TokenType.NOT_EQUALS);
+        }
+        else {
+          tok = new Token(TokenType.BANG);
+        }
+        break;
+      case '/':
+        tok = new Token(TokenType.SLASH);
+        break;
+      case '*':
+        tok = new Token(TokenType.ASTERISK);
+        break;
+      case '<':
+        tok = new Token(TokenType.LESSTHAN);
+        break;
+      case '>':
+        tok = new Token(TokenType.GREATERTHAN);
         break;
       case '{':
         tok = new Token(TokenType.LBRACE);
@@ -139,6 +169,16 @@ public class Lexer {
   // Generates a new token with the given tokentype
   public Token newToken(TokenType newType){
     return new Token(newType);
+  }
+
+  // Peeks at the next char in line
+  public char peekChar(){
+    if (this.readPosition >= this.input.length()){
+      return 0;
+    }
+    else{
+      return this.input.charAt(readPosition);
+    }
   }
 
 }

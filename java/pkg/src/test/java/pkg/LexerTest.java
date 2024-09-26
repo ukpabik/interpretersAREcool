@@ -19,7 +19,7 @@ public class LexerTest {
   @Test
     public void testLexerTokens() {
         // Test entire valid string input
-        String input = "let five = 5; let ten = 10; let add = fn(x, y) { x + y; }; let result = add(five, ten);";
+        String input = "let five = 5; let ten = 10; let add = fn(x, y) { x + y; }; let result = add(five, ten); !-/*5; 5 < 10 > 5;  if (5 < 10) { return true; } else { return false; }  10 == 10; 10 != 9;";
         
         // Create a new lexer
         Lexer lexer = new Lexer(input);
@@ -61,6 +61,43 @@ public class LexerTest {
             ",",
             "ten",
             ")",
+            ";",
+            "!",
+            "-",
+            "/",
+            "*",
+            "5",
+            ";",
+            "5",
+            "<",
+            "10",
+            ">",
+            "5",
+            ";",
+            "if",
+            "(",
+            "5",
+            "<",
+            "10",
+            ")",
+            "{",
+            "return",
+            "true",
+            ";",
+            "}",
+            "else",
+            "{",
+            "return",
+            "false",
+            ";",
+            "}",
+            "10",
+            "==",
+            "10",
+            ";",
+            "10",
+            "!=",
+            "9",
             ";"
         );
 

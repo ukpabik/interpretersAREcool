@@ -12,6 +12,12 @@ public enum TokenType{
     //Operators
     ASSIGN("="),
     PLUS("+"),
+    MINUS("-"),
+    BANG("!"),
+    ASTERISK("*"),
+    SLASH("/"),
+    LESSTHAN("<"),
+    GREATERTHAN(">"),
 
     //Delimiters
     COMMA(","),
@@ -24,7 +30,14 @@ public enum TokenType{
 
     //Keywords
     FUNCTION("FUNCTION"),
-    LET("LET");
+    LET("LET"),
+    TRUE("TRUE"),
+    FALSE("FALSE"),
+    IF("IF"),
+    ELSE("ELSE"),
+    RETURN("RETURN"),
+    EQUALS("=="),
+    NOT_EQUALS("!=");
     
 
 
